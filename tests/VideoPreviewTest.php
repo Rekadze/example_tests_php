@@ -31,11 +31,6 @@ class VideoPreviewTest extends AbstractTestCase
         $this->wd->getMouse()->mouseMove($first_video->getCoordinates());
 
         //Check preview images source
-        $this->assertNotNull(
-            $this->waitForXpath(
-                '//*[contains(@class, "page-layout__content-wrapper")]//img[contains(@class,"thumb-image__image") and contains(@srcset,"avatars")]'
-            ),
-            'No preview for first video'
-        );
+        $this->assertNotNull($first_video->getAttribute('srcset'), 'No preview for first video');
     }
 }
